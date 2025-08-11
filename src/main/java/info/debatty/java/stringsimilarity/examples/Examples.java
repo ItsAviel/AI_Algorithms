@@ -23,36 +23,23 @@
  */
 package info.debatty.java.stringsimilarity.examples;
 
-import info.debatty.java.stringsimilarity.CharacterSubstitutionInterface;
-import info.debatty.java.stringsimilarity.Cosine;
-import info.debatty.java.stringsimilarity.Damerau;
-import info.debatty.java.stringsimilarity.OptimalStringAlignment;
-import info.debatty.java.stringsimilarity.Jaccard;
-import info.debatty.java.stringsimilarity.JaroWinkler;
-import info.debatty.java.stringsimilarity.Levenshtein;
-import info.debatty.java.stringsimilarity.LongestCommonSubsequence;
-import info.debatty.java.stringsimilarity.NGram;
-import info.debatty.java.stringsimilarity.NormalizedLevenshtein;
-import info.debatty.java.stringsimilarity.QGram;
-import info.debatty.java.stringsimilarity.SorensenDice;
-import info.debatty.java.stringsimilarity.WeightedLevenshtein;
+import info.debatty.java.stringsimilarity.*;
 
 /**
- *
  * @author Thibault Debatty
  */
 public class Examples {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-//        // Levenshtein
-//        // ===========
-//        System.out.println("\nLevenshtein");
-//        Levenshtein levenshtein = new Levenshtein();
-//        System.out.println("Moti Sheneider");
-//        System.out.println(levenshtein.distance("Moti",  "Schneider"));
+
+        //Levenshtein with backtracking
+
+        String s1 = "kitten";
+        String s2 = "sitting";
+        LevenshteinV2.Result r = LevenshteinV2.compute(s1, s2);
+        LevenshteinV2.printMatrix(r.dp, s1, s2);
+        System.out.println(r.alignedA);
+        System.out.println(r.alignedB);
+        System.out.println("Distance: " + r.distance);
 
 
 
@@ -70,6 +57,12 @@ public class Examples {
         System.out.println(norLevenshtein.similarity("Moti", "Schneider"));
 
 
+//        // Levenshtein
+//        // ===========
+//        System.out.println("\nLevenshtein");
+//        Levenshtein levenshtein = new Levenshtein();
+//        System.out.println("Moti Sheneider");
+//        System.out.println(levenshtein.distance("Moti",  "Schneider"));
 
 
 //        // Jaccard index
@@ -230,5 +223,6 @@ public class Examples {
 //        System.out.println(cosine.getProfile("ABCAB"));
 
     }
-
 }
+
+
