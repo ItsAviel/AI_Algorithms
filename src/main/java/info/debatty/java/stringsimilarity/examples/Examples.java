@@ -6,25 +6,44 @@ public class Examples {
 
     public static void main(String[] args) {
 
-        // ===== Levenshtein with Traceback =====
-        String s1 = "Schneider";
-        String s2 = "Moti";
 
-        System.out.println("\n\n============ Levenshtein with Traceback ============");
-        System.out.println("A = " + s1 + ", B = " + s2);
+        String[][] pairs = {
+                {"FORM", "FORK"},
+                {"kitten", "sitting"},
+                {"SCHNEIDER", "MOTI"},
+                {"vintner", "writers"}
+        };
 
-        LevenshteinV2.Result result = LevenshteinV2.compute(s1, s2);
+        for (String[] pair : pairs) {
+            String s1 = pair[0];
+            String s2 = pair[1];
 
-        System.out.println("\n** The matrix is: **");
-        LevenshteinV2.printMatrix(result.dp, s1, s2);
+            System.out.println("\nExample for Levenshtein with traceback:");
+            System.out.println("A = " + s1 + ", B = " + s2);
 
-        System.out.println("\n** Traceback **");
-        System.out.println(result.alignedA);
-        System.out.println(result.alignedB);
+            // חישוב התוצאה
+            LevenshteinV2.Result result = LevenshteinV2.compute(s1, s2);
 
-        System.out.println("\nDistance: " + result.distance);
-        NormalizedLevenshtein normalized = new NormalizedLevenshtein();
-        System.out.println("Similarity: " + normalized.similarity(s1, s2));
+            // הדפסת המטריצה
+            System.out.println("\n** The matrix is: **");
+            LevenshteinV2.printMatrix(result.dp, s1, s2);
+
+            // הדפסת ה-Traceback
+            System.out.println("\n** Traceback **");
+            System.out.println(result.alignedA);
+            System.out.println(result.alignedB);
+
+            // הדפסת המרחק והדמיון
+            System.out.println("\nDistance: " + result.distance);
+            NormalizedLevenshtein normalized = new NormalizedLevenshtein();
+            System.out.println("Similarity: " + normalized.similarity(s1, s2));
+
+            System.out.println("\n--------------------------------------------\n");
+        }
+
+
+
+
 
         /*
          * ===== More examples =====
