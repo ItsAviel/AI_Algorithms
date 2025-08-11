@@ -31,10 +31,12 @@ import info.debatty.java.stringsimilarity.*;
 public class Examples {
     public static void main(String[] args) {
 
-        //Levenshtein with backtracking
+        //Levenshtein with traceback
 
-        String s1 = "kitten";
-        String s2 = "sitting";
+        System.out.println("\n\n================== Levenshtein with traceback :==================\nA=Moti, B=Schneider");
+        System.out.println("Distance: ");
+        String s1 = "Schneider";
+        String s2 = "Moti";
         LevenshteinV2.Result r = LevenshteinV2.compute(s1, s2);
         LevenshteinV2.printMatrix(r.dp, s1, s2);
         System.out.println(r.alignedA);
@@ -46,16 +48,16 @@ public class Examples {
         // Normalized Levenshtein
         // ======================
 
-        NormalizedLevenshtein norLevenshtein = new NormalizedLevenshtein();
-        Levenshtein levenshtein = new Levenshtein();
-        System.out.println("\n\n================== Example:==================\nA=Moti, B=Schneider");
-        System.out.println("Distance: ");
-        System.out.println(levenshtein.distance("Moti", "Schneider"));
-        System.out.println("Normalized distance: ");
-        System.out.println(norLevenshtein.distance("Moti", "Schneider"));
-        System.out.println("Similarity:");
-        System.out.println(norLevenshtein.similarity("Moti", "Schneider"));
-
+//        NormalizedLevenshtein norLevenshtein = new NormalizedLevenshtein();
+//        Levenshtein levenshtein = new Levenshtein();
+//        System.out.println("\n\n================== Example:==================\nA=Moti, B=Schneider");
+//        System.out.println("Distance: ");
+//        System.out.println(levenshtein.distance("Moti", "Schneider"));
+//        System.out.println("Normalized distance: ");
+//        System.out.println(norLevenshtein.distance("Moti", "Schneider"));
+//        System.out.println("Similarity:");
+//        System.out.println(norLevenshtein.similarity("Moti", "Schneider"));
+//
 
 //        // Levenshtein
 //        // ===========
