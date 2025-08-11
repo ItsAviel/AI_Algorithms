@@ -6,7 +6,6 @@ public class Examples {
 
     public static void main(String[] args) {
 
-
         String[][] pairs = {
                 {"FORM", "FORK"},
                 {"kitten", "sitting"},
